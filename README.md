@@ -37,7 +37,7 @@ python3 tools/build-data.py
 ```
 
 - **Count:** 38,816 locations, from 19 April 2007 15:53 to 27 January 2009 08:41 (UTC).
-  - The artist's site says the work ran until July 2009, but there is no data after January 2009 here. The feed probably stopped then, because the tracking service either stopped working or was no longer paid for.
+  - The artist's site says the work ran until July 2009, but there is no data after January 2009 here. The feed probably stopped then, because the tracking service either stopped working or was no longer paid for. The live database no longer exists, so `dump.xml` is the last record of the data.
   - `location.sql` is an earlier export, from March 2008, with nothing that isn't in `dump.xml`.
 - **Times:** the date and time recorded with each location are taken to be UTC, as the project spec asked. The site was moved to a new server at the end of March 2008, and the two servers turned those times into timestamps differently:
   - The first server ran on UK time, so its timestamps for summer dates are an hour off (British Summer Time).
