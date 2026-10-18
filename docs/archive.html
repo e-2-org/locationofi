@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Archive - Location of I, Martin John Callanan</title>
+<meta name="description" content="The archive of Location of I: every location Martin John Callanan recorded from April 2007 to January 2009, day by day." />
+<meta name="author" content="Martin John Callanan" />
+<link rel="icon" href="favicon.ico" />
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="module" src="js/archive.js"></script>
+</head>
+<body id="archive">
+  <div id="header">
+    <h3>[<a href="https://greyisgood.eu/">*</a>]</h3>
+    <h1>Martin John Callanan</h1>
+    <h2>Location of I</h2>
+  </div>
+  <div id="content">
+    <ul id="mapnav">
+      <li>[<a href="index.html">current location</a>]</li>
+      <li>[<a href="archive.html" aria-current="page">archive</a>]</li>
+      <li>[<a href="https://greyisgood.eu/location/">information</a>]</li>
+    </ul>
+    <div id="div_map"></div>
+    <nav id="calendar" aria-label="Days with recorded locations"></nav>
+    <div id="info">
+      <div class="box" id="lonlat">
+        Lat/Lon <span id="latLngTrack">&nbsp;</span>
+      </div>
+      <div class="box" id="dayinfo" aria-live="polite"><p>Loading&hellip;</p></div>
+      <div class="box">
+        <p>Times are UTC. The locations are also available as a spreadsheet: [<a href="data/locations.csv">locations.csv</a>].</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Location of I, Martin John Callanan</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="favicon.ico" />
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="module">
+import {startReplay} from './js/replay.js';
+startReplay({kiosk: true});
+</script>
+</head>
+<body id="kiosk">
+  <!-- the gallery version: full screen, no controls, replays the archive in a loop -->
+  <div class="caption">
+    <h2>Location of I</h2>
+    <p>Martin John Callanan</p>
+    <p><span id="lastUpdateTrack">&hellip;</span> UTC</p>
+  </div>
+  <div id="div_map"></div>
+</body>
+</html>

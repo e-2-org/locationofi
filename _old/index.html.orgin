@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Martin John Callanan</title>
+<!-- begin Dublin Core metadata -->
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+<meta name="DC.title" lang="en" content="Martin John Callanan" />
+<meta name="DC.creator" content="Martin John Callanan" />
+<meta name="DC.publisher" content="Martin John Callanan" />
+<meta name="DC.subject" lang="en" content="hkjhjkhjkhjkhjkh" />
+<meta name="DC.description" lang="en" content="hjhjkhjkhkjh" />
+<meta name="DC.contributor" content="Peter Edwards" />
+<meta name="DC.date" scheme="DCTERMS.W3CDTF" content="2007-02-21" />
+<meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text" />
+<meta name="DC.format" content="text/html" />
+<meta name="DC.identifier" scheme="DCTERMS.URI" content="http://location.greyisgood.eu/index.html" />
+<meta name="DC.language" scheme="DCTERMS.RFC1766" content="en" />
+<meta name="DC.rights" content="Copyright ©2007 - Martin John Callanan" />
+<!-- end Dublin Core metadata -->
+<!-- begin conventional metadata -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="hkjhjkhjkhjkhjkh" />
+<meta name="description" content="hjhjkhjkhkjh" />
+<meta name="robots" content="INDEX,FOLLOW" />
+<meta name="author" content="Martin John Callanan" />
+<meta name="publisher" content="Martin John Callanan" />
+<meta name="copyright" content="Copyright ©2007 - Martin John Callanan" />
+<!-- end conventional metadata -->
+<link rel="stylesheet" type="text/css"	href="css/style.css" />
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA2hCAwQoqB4EyVsWLsGRvzhTknMj3MySqO-iVbYgcEGUlOzpuvRRGoLdtA4SR6zP4-flfSQgWkdqR0w"></script>
+<script type="text/javascript">
+//<![CDATA[
+var XMLfileURL = "http://location.greyisgood.eu/XMLdata.php";
+var loadCalendar = false;
+//]]>
+</script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/location.js"></script>
+</head>
+<body onload="load('index')" onunload="GUnload()" class="index">
+
+<div class="content">
+  <p class="sectitle">Martin John Callanan</p>
+  <p><span class="red">Location of I</span></p>
+  <p><a href="mailto:m@greyisgood.eu" class="gig">m@greyisgood.eu</a></p>
+  <ul class="nav">
+    <li><a href="index.html" class="current">current location</a></li>
+    <li><a href="archive.html" class="link">archive</a></li>
+  </ul>
+</div>
+
+<!-- loading message -->
+<div id="loading"><div id="message"><p>Loading New Location<br />Please wait...</p></div></div>
+<!-- map -->
+<div id="div_map"></div>
+
+<div class="content">
+  <p>Lon/Lat<br /><span id="latLngTrack">&nbsp;</span></p>
+  <p>location.greyisgood.eu &#8212; location last updated <span id="lastUpdateTrack"></span></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>test server</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA2hCAwQoqB4EyVsWLsGRvzhTknMj3MySqO-iVbYgcEGUlOzpuvRRGoLdtA4SR6zP4-flfSQgWkdqR0w"
+      type="text/javascript"></script>
+    <script type="text/javascript">
+
+    //<![CDATA[
+
+    function load() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map"));
+GEvent.addListener(map, "moveend", function() {
+  var center = map.getCenter();
+  document.getElementById("message").innerHTML = center.toString();
+});
+map.addControl(new GSmallMapControl());
+map.addControl(new GMapTypeControl());        
+map.setCenter(new GLatLng(56.94472, 24.109438), 13);
+map.openInfoWindow(map.getCenter(),
+                   document.createTextNode("Current location {details}"));
+
+// Create our "tiny" marker icon
+var icon = new GIcon();
+icon.image = "http://labs.google.com/ridefinder/images/mm_20_red.png";
+icon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+icon.iconSize = new GSize(12, 20);
+icon.shadowSize = new GSize(22, 20);
+icon.iconAnchor = new GPoint(6, 20);
+icon.infoWindowAnchor = new GPoint(5, 1);
+
+
+  }
+    }
+
+    //]]>
+    </script>
+
+<link href="gigloco.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body onload="load()" onunload="GUnload()">
+<div id="head">location.greyisgood.eu -- this is a test server only, please see <a href="http://greyisgood.eu/location">http://greyisgood.eu/location</a> for details</div>
+    <div id="map" style="width: 650px; height: 433px"></div>
+Lon/Lat<div id="message"></div> 
+ </body>
+</html>
+

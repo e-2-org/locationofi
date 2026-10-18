@@ -1,0 +1,292 @@
+/*
+ * Location of I
+ * based on the original stylesheet (greyisgood july 2008, version 2.1, by mjc)
+ */
+
+body {
+    background: #fff url(../img/bkgrid.gif) repeat fixed;
+    color: #000;
+    font: 12px/1.3 "Courier New", Courier, monospace;
+    letter-spacing: 0.05em;
+    margin: 40px 30px 10px;
+}
+/* :where() keeps these weaker than Leaflet's own control styles */
+a:where(:link, :visited, :active) {
+    color: #000;
+    text-decoration: none;
+    background-color: #ccc;
+}
+a:where(:hover, :focus-visible) {
+    color: #fff;
+    background-color: #333;
+}
+h1, h2, h3, h4 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+/* header */
+#header {
+    padding-bottom: 25px;
+}
+#header h1 {
+    letter-spacing: 0.5em;
+    line-height: 8pt;
+}
+#header h2 {
+    color: #f00;
+    font: 3em/0.8 garamond, "Garamond Premier Pro", "EB Garamond", georgia, "Times New Roman", times, serif;
+    margin: 0.4em 0;
+}
+#header h3 {
+    letter-spacing: 0.1em;
+    line-height: 8pt;
+}
+
+/* navigation */
+ul#mapnav, ul.links {
+    list-style: none;
+    margin: 0 0 6px 1px;
+    padding: 0;
+}
+ul#mapnav li, ul.links li {
+    display: inline;
+    margin-right: 0.3em;
+}
+ul#mapnav li a[aria-current] {
+    color: #fff;
+    background-color: #333;
+}
+
+/* map */
+#div_map {
+    width: 650px;
+    max-width: calc(100% - 4px);
+    aspect-ratio: 650 / 433;
+    padding: 1px;
+    border: 1px dotted #333;
+    background: #fff;
+    margin: 6px 0;
+}
+#div_map .leaflet-control-attribution a {
+    background: transparent;
+}
+#div_map .leaflet-popup-content p {
+    margin: 0;
+    padding: 1px 0;
+}
+#div_map .leaflet-popup-content a {
+    background-color: #ccc;
+}
+#div_map .leaflet-popup-content-wrapper, #div_map .leaflet-tooltip {
+    font: 12px/1.4 "Courier New", Courier, monospace;
+}
+#div_map .label {
+    display: inline-block;
+    width: 3.5em;
+    color: #666;
+}
+
+/* boxes under the map */
+.box {
+    width: 650px;
+    max-width: calc(100% - 4px);
+    box-sizing: border-box;
+    padding: 6px;
+    border: 1px dotted #333;
+    background: #fff;
+    margin: 3px 0 2px;
+}
+.box h3, .box p {
+    margin: 0 0 6px;
+}
+.box > :last-child {
+    margin-bottom: 0;
+}
+#latLngTrack {
+    white-space: nowrap;
+}
+
+/* replay controls */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 12px;
+    margin-bottom: 6px;
+}
+.controls button, .controls select {
+    font: inherit;
+    letter-spacing: inherit;
+    color: #000;
+    background: #ccc;
+    border: 0;
+    border-radius: 0;
+    padding: 1px 4px;
+    cursor: pointer;
+}
+.controls button {
+    min-width: 5em;
+}
+.controls button:hover, .controls button:focus-visible {
+    color: #fff;
+    background: #333;
+}
+.timeline {
+    position: relative;
+    height: 44px;
+}
+.timeline canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.timeline input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+.timeline input::-webkit-slider-runnable-track {
+    height: 100%;
+    background: transparent;
+}
+.timeline input::-moz-range-track {
+    height: 100%;
+    background: transparent;
+}
+.timeline input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 44px;
+    background: #000;
+    border: 0;
+}
+.timeline input::-moz-range-thumb {
+    width: 3px;
+    height: 44px;
+    background: #000;
+    border: 0;
+    border-radius: 0;
+}
+.timeline input:focus-visible {
+    outline: 1px dotted #333;
+    outline-offset: 2px;
+}
+
+/* archive page: the calendar sits beside the map when there's room */
+body#archive #content {
+    display: grid;
+    grid-template-columns: minmax(0, 650px) 220px;
+    grid-template-areas: "nav nav" "map calendar" "info calendar";
+    grid-template-rows: auto auto 1fr;
+    column-gap: 12px;
+    max-width: 900px;
+}
+body#archive #mapnav { grid-area: nav; }
+body#archive #div_map { grid-area: map; max-width: none; width: auto; }
+body#archive #info { grid-area: info; align-self: start; }
+body#archive #info .box { width: auto; max-width: none; }
+#calendar {
+    grid-area: calendar;
+    margin: 6px 0;
+    border: 1px dotted #333;
+    background: #fff;
+    padding: 0 6px;
+    overflow-y: auto;
+    /* as tall as the map and the boxes under it */
+    max-height: 560px;
+    align-self: start;
+}
+.month h4 {
+    margin: 10px 0 4px;
+}
+.month .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    text-align: center;
+}
+.month .days b {
+    font-weight: normal;
+    color: #999;
+}
+.month .days span {
+    color: #bbb;
+}
+.month .days a {
+    display: block;
+}
+.month .days a.level1 { background: #fcc; }
+.month .days a.level2 { background: #f99; }
+.month .days a.level3 { background: #f55; color: #fff; }
+.month .days a.level4 { background: #e00; color: #fff; }
+.month .days a:hover, .month .days a:focus-visible, .month .days a[aria-current] {
+    background: #333;
+    color: #fff;
+}
+#calendar .month:last-child {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 720px) {
+    body {
+        margin: 20px 16px 10px;
+    }
+    #header h1 {
+        letter-spacing: 0.3em;
+    }
+    /* keep the scale clear of the map credits, which wrap on narrow maps */
+    #div_map .leaflet-control-scale {
+        margin-bottom: 36px;
+    }
+    body#archive #content {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "nav" "map" "info" "calendar";
+    }
+    #calendar {
+        max-height: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        column-gap: 16px;
+    }
+}
+
+/* gallery (kiosk) page: full screen map */
+html:has(body#kiosk), body#kiosk {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+body#kiosk #div_map {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    aspect-ratio: auto;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+body#kiosk .caption {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 4px 8px;
+    border: 1px dotted #333;
+}
+body#kiosk .caption h2 {
+    color: #f00;
+    font: 2em/1 garamond, "Garamond Premier Pro", "EB Garamond", georgia, "Times New Roman", times, serif;
+    margin: 0 0 4px;
+}
+body#kiosk .caption p {
+    margin: 0;
+}

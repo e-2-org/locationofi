@@ -1,0 +1,70 @@
+body {
+	background-image: url(img/bkgrid.gif);
+	background-repeat: repeat;
+	background-attachment: fixed
+	
+}
+
+a {
+	color : #000000;
+	font-size : 11px;
+	font-family : "Courier New", Courier, mono;
+	text-decoration : none;
+	background-color : #CCCCCC;
+}
+
+a.empty {
+	color : #000000;
+	font-size : 11px;
+	font-family : "Courier New", Courier, mono;
+	text-decoration : none;
+}
+.plain {
+	color : #000000;
+	font-style : normal;
+	font-size : 11px;
+	font-family : "Courier New", Courier, mono;
+	line-height : 16pt;
+	text-decoration : none;
+	position : relative;
+	left : 50px;
+	top : 30px;
+	background-color: #FFFFFF;
+}
+a:hover {
+	color : #FFFFFF;
+	background-color : #333333;
+
+}
+.dotboxmap {
+	padding: 1px;
+	height: auto;
+	width: auto;
+	border: 1px dotted #333333;
+	background-repeat: no-repeat;
+	float: left;
+	clear: right;
+	background-color: #FFFFFF;
+	margin: 1px;
+}
+.sectitle {
+	letter-spacing: 3pt;
+	
+}
+.dottedboxtxt {
+	padding: 6px;
+	height: auto;
+	width: 80%;
+	border: 1px dotted #333333;
+	background-repeat: no-repeat;
+	float: left;
+	clear: right;
+	background-color: #FFFFFF;
+	margin: 1px;
+}
+
+.red {
+	background-color: #FF0000;
+	color: #FFFFFF;
+}
+

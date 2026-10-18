@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Location of I, Martin John Callanan</title>
+<meta name="description" content="Location of I: Martin John Callanan's physical location, published online as it happened from April 2007 to January 2009, replayed from the archive." />
+<meta name="author" content="Martin John Callanan" />
+<link rel="icon" href="favicon.ico" />
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="module">
+import {startReplay} from './js/replay.js';
+startReplay();
+</script>
+</head>
+<body id="index">
+  <div id="header">
+    <h3>[<a href="https://greyisgood.eu/">*</a>]</h3>
+    <h1>Martin John Callanan</h1>
+    <h2>Location of I</h2>
+  </div>
+  <div id="content">
+    <ul id="mapnav">
+      <li>[<a href="index.html" aria-current="page">current location</a>]</li>
+      <li>[<a href="archive.html">archive</a>]</li>
+      <li>[<a href="https://greyisgood.eu/location/">information</a>]</li>
+    </ul>
+    <div id="div_map"></div>
+    <div class="box" id="lonlat">
+      Lat/Lon <span id="latLngTrack">&nbsp;</span>
+      <br />location last updated <span id="lastUpdateTrack">&hellip;</span> UTC
+    </div>
+    <div class="box">
+      <div class="controls">
+        <button type="button" id="play" aria-pressed="false" disabled>play</button>
+        <label>speed <select id="speed"></select> per second</label>
+        <span id="clock" aria-live="off"></span>
+      </div>
+      <div class="timeline">
+        <canvas id="density" aria-hidden="true"></canvas>
+        <input type="range" id="timeline" aria-label="Replay time" value="0" />
+      </div>
+    </div>
+    <div class="box">
+      <p>From 19 April 2007 to 27 January 2009 this page showed where Martin John Callanan was, as it happened. The live feed has ended; the map shows the last location it recorded. Press play, or drag along the timeline, to replay the archive of 38,816 locations. The red bars show how many locations were recorded each day.</p>
+    </div>
+  </div>
+</body>
+</html>

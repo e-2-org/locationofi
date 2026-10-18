@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<title>Martin John Callanan</title>
+		<style type="text/css">
+		v\:* {
+			behavior:url(#default#VML);
+		}
+		</style>
+		<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA2hCAwQoqB4EyVsWLsGRvzhTknMj3MySqO-iVbYgcEGUlOzpuvRRGoLdtA4SR6zP4-flfSQgWkdqR0w" type="text/javascript"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		
+	    function onLoad() {
+		// var 
+		map = new GMap(document.getElementById("div_map"));
+		map.addControl(new GLargeMapControl());
+		map.addControl(new GMapTypeControl());
+		map.addControl(new GOverviewMapControl());
+		map.enableDoubleClickZoom();
+		// the scale bar 200=pixels
+		map.addControl(new GScaleControl(200));
+		// set to EU		
+		map.setCenter(new GLatLng(49.553, 12.568), 4);
+// pan to riga as centre this requires var on map=new
+//	window.setTimeout(function() {
+//	map.panTo(new GLatLng(56.938,24.115));
+//	}, 4000);
+//	window.setTimeout(function() {
+//	map.setZoom(8);
+//	}, 6000);
+
+// this turns the hybrid on		 
+// map.setMapType(G_HYBRID_TYPE);	      
+
+
+
+	      getMarkers();
+
+	      
+
+	      GEvent.addListener(map, "click", function(overlay, point) {
+		      if (overlay){	// marker clicked
+			      overlay.openInfoWindowHtml(overlay.infowindow);	// open InfoWindow
+		      } else if (point) {	// background clicked
+			      
+		      }
+	      });
+	    }
+    	
+		function getMarkers(){
+		    var urlstr="read.php";
+		    var request = GXmlHttp.create();
+		    request.open('GET', urlstr , true);	// request XML from PHP with AJAX call
+		    request.onreadystatechange = function () {
+				if (request.readyState == 4) {
+					var xmlDoc = request.responseXML;
+					locations = xmlDoc.documentElement.getElementsByTagName("location");
+					markers = [];
+					if (locations.length){
+						for (var i = 0; i < locations.length; i++) { // cycle thru locations
+							markers[i] = new GMarker(new GLatLng(locations[i].getAttribute("lat"),locations[i].getAttribute("lng")));
+							// Add attributes to the marker so we can poll them later.
+							// When clicked, an overlay will have these properties.
+							markers[i].infowindow = "This is "+locations[i].getAttribute("name");
+							
+							// Useful things to store on a marker (Not needed for this example, could be removed)
+							// Tells you what index in the markers[] array an overlay is
+							markers[i].markerindex = i;
+							// Store the location_id of the location the marker represents.
+							// Very useful to know the true id of a marker, you could then make
+							// AJAX calls to the database to update the information if you had it's location_id
+							markers[i].db_id = locations[i].getAttribute("location_id");
+							
+							map.addOverlay(markers[i]);
+							
+						}
+					}
+				}
+			}
+			request.send(null);
+	    }
+	
+
+
+	
+		//]]>
+		</script>
+	</head>
+	<body onload="onLoad()" onunload="GUnload()">
+Martin John Callanan<br />
+Location of I -- TEST SERVER<br />
+<a href="mailto:m@greyisgood.eu">m@greyisgood.eu</a></p>
+		
+<div id="div_map" style="width: 650px; height: 433px"></div>
+<br /> AJAX with PHP and MySQL - Using a back end MySQL database to generate XML using XMLHttpRequest.<br />
+On top is the panto zoomto via timeout 
+
+	</body>
+</html>

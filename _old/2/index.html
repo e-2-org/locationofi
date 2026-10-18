@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Martin John Callanan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="hkjhjkhjkhjkhjkh" />
+<meta name="description" content="hjhjkhjkhkjh" />
+<meta name="language" CONTENT="English">
+<meta name="expires" CONTENT="never">
+<meta name="charset" CONTENT="ISO-8859-1">
+<meta name="distribution" CONTENT="Global">
+<meta name="robots" CONTENT="INDEX,FOLLOW">
+<meta name="autor" content="Martin John Callanan">
+<meta name="email" CONTENT="m@greyisgood.eu">
+<meta name="publisher" CONTENT="Martin John Callanan">
+<meta name="copyright" CONTENT="Copyright ©2007 - Martin John Callanan">
+<link href="gigloco.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+		v\:* {
+			behavior:url(#default#VML);
+		}
+		</style>
+	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA2hCAwQoqB4EyVsWLsGRvzhTknMj3MySqO-iVbYgcEGUlOzpuvRRGoLdtA4SR6zP4-flfSQgWkdqR0w" type="text/javascript"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		
+	    function onLoad() {
+	      map = new GMap(document.getElementById("div_map"));
+	      map.addControl(new GLargeMapControl());
+		map.addControl(new GMapTypeControl());
+		map.addControl(new GOverviewMapControl());
+		map.setMapType(G_HYBRID_TYPE);
+	     map.setCenter(new GLatLng(49.553, 12.568), 4);
+	      
+	      getMarkers();
+	      
+	      GEvent.addListener(map, "click", function(overlay, point) {
+		      if (overlay){	// marker clicked
+			      overlay.openInfoWindowHtml(overlay.infowindow);	// open InfoWindow
+		      } else if (point) {	// background clicked
+			      
+		      }
+	      });
+	    }
+    	
+		function getMarkers(){
+		    var urlstr="read.php";
+		    var request = GXmlHttp.create();
+		    request.open('GET', urlstr , true);	// request XML from PHP with AJAX call
+		    request.onreadystatechange = function () {
+				if (request.readyState == 4) {
+					var xmlDoc = request.responseXML;
+					locations = xmlDoc.documentElement.getElementsByTagName("location");
+					markers = [];
+					if (locations.length){
+						for (var i = 0; i < locations.length; i++) { // cycle thru locations
+							markers[i] = new GMarker(new GLatLng(locations[i].getAttribute("lat"),locations[i].getAttribute("lng")));
+							// Add attributes to the marker so we can poll them later.
+							// When clicked, an overlay will have these properties.
+							markers[i].infowindow = "This is "+locations[i].getAttribute("name");
+							
+							// Useful things to store on a marker (Not needed for this example, could be removed)
+							// Tells you what index in the markers[] array an overlay is
+							markers[i].markerindex = i;
+							// Store the location_id of the location the marker represents.
+							// Very useful to know the true id of a marker, you could then make
+							// AJAX calls to the database to update the information if you had it's location_id
+							markers[i].db_id = locations[i].getAttribute("location_id");
+							
+							map.addOverlay(markers[i]);
+							
+						}
+					}
+				}
+			}
+			request.send(null);
+	    }
+		
+		//]]>
+		</script>
+
+
+
+</head>
+
+<body onload="load()"  class="plain">
+<table width="98%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><p><span class="sectitle">Martin John Callanan</span><br />
+          <span class="red">Location of I -- TEST SERVER</span><br />
+          <a href="mailto:m@greyisgood.eu">m@greyisgood.eu</a></p>
+    </td>
+  </tr>
+ 
+ <tr>
+    <td colspan="2">  
+    <div class="dotboxmap" id="div_map" style="width: 650px; height: 433px"></div>
+   </td>
+  </tr>
+ 
+  <tr>
+    <td colspan="2">Lon/Lat<div id="message"></div></td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><p>&nbsp;</p>
+      <p>location.greyisgood.eu &#8212; code last updated
+        <!-- #BeginDate format:fcAm1m -->Wednesday, February 21, 2007  20:30<!-- #EndDate -->
+      </p></td>
+  </tr>
+  
+</table>
+</body>
+</html>

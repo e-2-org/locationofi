@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<title>Martin John Callanan</title>
+		<style type="text/css">
+		v\:* {
+			behavior:url(#default#VML);
+		}
+		</style>
+		<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA2hCAwQoqB4EyVsWLsGRvzhTknMj3MySqO-iVbYgcEGUlOzpuvRRGoLdtA4SR6zP4-flfSQgWkdqR0w" type="text/javascript"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		
+	    function onLoad() {
+		var map = new GMap(document.getElementById("div_map"));
+		map.addControl(new GLargeMapControl());
+		map.addControl(new GMapTypeControl());
+		map.addControl(new GOverviewMapControl());
+		map.enableDoubleClickZoom();
+		// the scale bar 200=pixels
+		map.addControl(new GScaleControl(200));
+		// set to EU		
+		map.setCenter(new GLatLng(49.553, 12.568), 4);
+      
+
+
+	   function plotVisibleMarkers() { 
+        var request = GXmlHttp.create(); 
+        var bounds = map.getBoundsLatLng(); 
+        var xmlSourceURI = "http://www.locatea.net/data.php" + 
+                "?l=" + bounds.minX + 
+                "&r=" + bounds.maxX + 
+                "&b=" + bounds.minY + 
+                "&t=" + bounds.maxY; 
+
+        request.open( "GET", xmlSourceURI, true ); 
+        request.onReadyStateChange = function() { 
+                if( request.readyState == 4 ) { 
+                        var xmlDoc = request.responseXML; 
+                        var markers = xmlDoc.documentElement.getElementsByTagName( "point" 
+); 
+
+                        for( var i = 0; i < markers.length; i++ ) { 
+                                var x = parseFloat(markers[i].getAttribute("lat")); 
+                                var y = parseFloat(markers[i].getAttribute("lng")); 
+
+                                map.addOverlay( createMarker(new GPoint(x, y) ); 
+                        } // for 
+
+                        setStatus("Plotted " + i + " markers on map"); 
+                } // if 
+        } // onReadyStateChange 
+
+        request.send(null); 
+
+} 
+
+function onMapMoved() { 
+        if( infoOpened == true ) { 
+                infoOpened = false; 
+                return; 
+        } 
+        map.clearOverlays(); 
+        plotVisibleMarkers(); 
+
+} 
+
+function onInfoWindowOpen() { 
+        infoOpened = true; 
+} 
+
+// Instantiate a GMap object called "map" and place all of your 
+// initialization, centering/zooming, control, etc. options here. 
+GEvent.addListener(map, "moveend", this.onMapMoved); 
+GEvent.addListener(map, "infowindowopen", this.onInfoWindowOpen); 
+plotVisibleMarkers(); 
+
+}
+
+	
+		//]]>
+		</script>
+	</head>
+	<body onload="onLoad()" onunload="GUnload()">
+Martin John Callanan<br />
+Location of I -- TEST SERVER<br />
+<a href="mailto:m@greyisgood.eu">m@greyisgood.eu</a></p>
+		
+<div id="div_map" style="width: 650px; height: 433px"></div>
+<br /> javascript calling xml.php
+
+	</body>
+</html>
